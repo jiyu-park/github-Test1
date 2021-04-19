@@ -1,0 +1,35 @@
+--메인함수
+import java.util.Scanner;
+
+public class Union {
+    static Scanner scan = new Scanner(System.in);
+    public static void main(String[]args){
+        System.out.println(("십의 자리와 일의 자리를 조합합니다"));
+        System.out.println(("\r 십의 자리 숫자를 입력해주세요"));
+        int t = TenthDight.key(scan.nextInt());
+
+        System.out.println(("\r 일의 자리 숫자를 입력해주세요"));
+        int u = UnitDigit.key(scan.nextInt());
+
+        System.out.println("입력하신 숫자는"+(t+u)+"입니다.");
+    }
+}
+
+--
+public class TenthDight {
+    public static int key(int number){
+        return number*10;
+    }
+
+
+}
+
+--
+public class UnitDigit {
+    public static int key(int number){
+        return number*1;
+    }
+
+}
+
+
