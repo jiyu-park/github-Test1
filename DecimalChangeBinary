@@ -1,0 +1,61 @@
+--메인함수
+import java.util.Scanner;
+
+public class Change {
+    static Scanner scan =new Scanner(System.in);
+    public static void main(String[]args){
+        System.out.println("10진수->2진수: 숫자1 입력");
+        System.out.println("2진수->10진수: 숫자2 입력");
+        System.out.println("\r메뉴선택: ");
+        int select =scan.nextInt();
+
+        switch (select){
+            case 1:
+                System.out.println("2진수를 표현할 10진수 입력:");
+                int inputDecimal= scan.nextInt();
+                System.out.printf("\r 변환결과:"+DecimalToBinary.DToB(inputDecimal));
+                break;
+
+            case 2:
+                System.out.println("10진수로 표현할 2진수 입력:");
+                String inputBinary =scan.next();
+                System.out.printf("\r 변환 결과: "+BinaryToDecimal.BToD(inputBinary));
+                break;
+        }
+    }
+}
+
+
+--DecimalToBinary class
+
+public class DecimalToBinary {
+    public static String DToB(int decimal){
+        int binary = 2;
+        String output ="";
+
+        while(((float)decimal/(float)binary)>=0.5){
+            output=decimal % binary + output;
+            decimal=decimal/binary;
+        }
+        return output;
+    }
+}
+
+--BinaryToDecimal
+
+public class BinaryToDecimal {
+    public static int BToD(String inputBinary){
+        int column=0, binary=2, output=0, i=inputBinary.length()-1;
+        while(column<inputBinary.length()){
+            int digitNum =Integer.parseInt(inputBinary.substring(column,column+1));
+            System.out.println(digitNum*(int)Math.pow(binary,i));
+            i--;
+            column++;
+        }
+        return  output;
+    }
+}
+
+
+
+
